@@ -17,10 +17,10 @@ import {
 import { IoFilter } from "react-icons/io5";
 import { categoryURL } from "../services/actions/landingPoints";
 import { brandURL } from "../services/actions/brand";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import React, { Suspense, useEffect } from "react";
 
-export default function Produtos() {
+function ProdutosWithSuspense() {
   const getData = useSearchParams();
   const brandFilter = getData.get("brand");
   const groupFilter = getData.get("group");
@@ -140,3 +140,13 @@ export default function Produtos() {
     </>
   );
 }
+
+const Produtos = () => {
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <ProdutosWithSuspense />
+    </Suspense>
+  );
+};
+
+export default Produtos;

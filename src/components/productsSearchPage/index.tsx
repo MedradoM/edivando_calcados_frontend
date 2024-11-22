@@ -1,8 +1,9 @@
-
 const ProductsSearchPage = () => {
-    return (
-        
-    )   
-}
+  return (
+    <div>
+      <div></div>
+    </div>
+  );
+};
 
-export default ProductsSearchPage
+export default ProductsSearchPage;
